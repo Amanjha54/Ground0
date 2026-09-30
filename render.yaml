@@ -1,0 +1,48 @@
+services:
+  # ==============================================================
+  # 1. GROUND0 AI SERVICE (Python FastAPI + Computer Vision)
+  # ==============================================================
+  - type: web
+    name: ground0-ai-service
+    runtime: python
+    rootDir: apps/ai-service
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: SUPABASE_JWKS_URL
+        sync: false
+
+  # ==============================================================
+  # 2. GROUND0 WEB APPLICATION (Next.js 14 App Router)
+  # ==============================================================
+  - type: web
+    name: ground0-web
+    runtime: node
+    buildCommand: npm install && npm run build --workspace=@ground0/web
+    startCommand: npm run start --workspace=@ground0/web
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 20.16.0
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: NEXT_PUBLIC_MAPTILER_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: AI_SERVICE_URL
+        fromService:
+          type: web
+          name: ground0-ai-service
+          property: host
