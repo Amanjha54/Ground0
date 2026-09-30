@@ -9,15 +9,15 @@
     "services/*"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace=apps/web",
+    "dev": "npm run dev --workspace=@ground0/web",
     "dev:all": "concurrently \"npm run dev:web\" \"npm run dev:ai\"",
-    "dev:web": "npm run dev --workspace=apps/web",
+    "dev:web": "npm run dev --workspace=@ground0/web",
     "dev:ai": "cd apps/ai-service && python -m uvicorn main:app --reload --port 8000",
-    "build": "npm run build --workspace=apps/web",
-    "start": "npm run start --workspace=apps/web",
-    "lint": "npm run lint --workspace=apps/web",
+    "build": "npm run build --workspace=@ground0/web",
+    "start": "npm run start --workspace=@ground0/web",
+    "lint": "npm run lint --workspace=@ground0/web",
     "test": "npm run test --workspaces --if-present",
-    "typecheck": "npm run typecheck --workspace=apps/web"
+    "typecheck": "npm run typecheck --workspace=@ground0/web"
   },
   "keywords": [
     "ground0",

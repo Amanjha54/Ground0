@@ -7,6 +7,18 @@
 
 ## 1. High-Level System Architecture
 
+### Planned High-Level Architecture Flow
+```
+Citizen / Worker / Authority frontend
+→ Next.js
+→ Supabase
+→ FastAPI AI service
+→ verification pipeline
+→ human review
+```
+
+> **Note on Media & Cameras**: Camera and live media streaming support (MediaMTX, ONVIF/RTSP/WebRTC) will be integrated in a later phase.
+
 Ground0 is engineered as a decoupled, microservices-oriented platform composed of three primary operational tiers:
 
 1. **Client & Web Application Tier (`apps/web`)**

@@ -4,6 +4,35 @@ Ground0 utilizes PostgreSQL 15+ hosted on Supabase, leveraging relational integr
 
 ---
 
+## Planned Major Tables
+
+The database architecture is planned around these major tables:
+
+1. `profiles`
+2. `organizations`
+3. `organization_members`
+4. `complaints`
+5. `complaint_media`
+6. `master_issues`
+7. `complaint_issue_links`
+8. `work_orders`
+9. `work_order_requirements`
+10. `assignments`
+11. `capture_sessions`
+12. `evidence`
+13. `evidence_hashes`
+14. `evidence_embeddings`
+15. `verification_runs`
+16. `verification_steps`
+17. `verification_results`
+18. `risk_flags`
+19. `human_reviews`
+20. `citizen_feedback`
+21. `notifications`
+22. `audit_events`
+
+---
+
 ## 1. Entity-Relationship Overview
 
 ```mermaid

@@ -4,6 +4,20 @@
 
 ---
 
+## Mandatory Security Rules
+
+1. **Never expose server secrets**: Keep `SUPABASE_SECRET_KEY`, `GEMINI_API_KEY`, and internal service tokens strictly on the server backend.
+2. **Use Supabase RLS later**: Row-Level Security policies will be enforced on every table to guarantee database-level access control.
+3. **Never place secret keys in NEXT_PUBLIC variables**: Client-exposed bundles must only contain public parameters (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, etc.).
+4. **Never commit .env files**: Environment variable files containing keys or credentials must remain strictly gitignored.
+5. **Authorized cameras only**: Only organization-approved camera streams may be configured.
+6. **No unauthorized CCTV access**: Unauthorized scanning, public probing, or accessing cameras without authorization is strictly prohibited.
+7. **Human review for consequential decisions**: AI generates recommendations and confidence scores; human inspectors must make final approval/rejection decisions.
+8. **Uploaded evidence should be validated**: Validate MIME types, cryptographic hashes, timestamps, and geofence distance on all submissions.
+9. **Organization data must be isolated**: Strict multi-tenant isolation ensures organizations access only their own complaints, work orders, and camera feeds.
+
+---
+
 ## 1. Threat Model & Mitigations
 
 | Threat Vector | Attack Scenario | Ground0 Mitigation Strategy |

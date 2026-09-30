@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 232 40% 4%;
+    --foreground: 210 40% 98%;
+    --card: 230 35% 7%;
+    --card-foreground: 210 40% 98%;
+    --popover: 230 35% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 46 65% 52%; /* Champagne Gold */
+    --primary-foreground: 232 40% 4%;
+    --secondary: 230 25% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 230 20% 16%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 158 90% 31%; /* Deep Emerald */
+    --accent-foreground: 210 40% 98%;
+    --destructive: 345 82% 50%; /* Controlled Crimson */
+    --destructive-foreground: 210 40% 98%;
+    --border: 230 20% 18%;
+    --input: 230 20% 18%;
+    --ring: 46 65% 52%;
+  }
+
+  body {
+    background-color: #090A0F;
+    color: #E2E8F0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090A0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #1C1F2E;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Royal Obsidian Glassmorphism */
+.glass-panel {
+  background: rgba(19, 21, 31, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel-gold {
+  background: rgba(19, 21, 31, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: 0 8px 32px 0 rgba(212, 175, 55, 0.08);
+}
+
+.glass-panel-emerald {
+  background: rgba(19, 21, 31, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(5, 150, 105, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(5, 150, 105, 0.12);
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.35);
+}
+
+.emerald-glow {
+  box-shadow: 0 0 25px -5px rgba(5, 150, 105, 0.45);
+}
+
+.crimson-glow {
+  box-shadow: 0 0 25px -5px rgba(225, 29, 72, 0.45);
+}
+
+/* High-tech holographic scanline grid */
+.tech-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Accessible Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

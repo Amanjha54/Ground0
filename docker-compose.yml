@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=${NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY}
+      - AI_SERVICE_URL=http://ai-service:8000
+      - MEDIA_GATEWAY_URL=http://media-gateway:8889
+    depends_on:
+      - ai-service
+
+  ai-service:
+    build:
+      context: apps/ai-service
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SECRET_KEY=${SUPABASE_SECRET_KEY}
+
+  media-gateway:
+    build:
+      context: services/media-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8554:8554" # RTSP
+      - "8889:8889" # WebRTC
+      - "8888:8888" # HLS

@@ -4,7 +4,19 @@
 
 ---
 
-## 1. The 8-Stage Autonomous Verification Pipeline
+## 1. The Autonomous Verification Pipeline
+
+### Verification Pipeline Lifecycle Sequence
+```
+QUEUED
+→ INTEGRITY_CHECK
+→ LOCATION_CHECK
+→ SCENE_ANALYSIS
+→ CHANGE_ANALYSIS
+→ REQUIREMENT_ANALYSIS
+→ RISK_ANALYSIS
+→ HUMAN_REVIEW
+```
 
 When a field worker marks physical work as completed and submits After evidence, Ground0 triggers an asynchronous multi-stage evaluation pipeline:
 
